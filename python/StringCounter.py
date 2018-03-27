@@ -17,10 +17,11 @@ def countStrings(contents : str, min_str_length : int = 8, max_str_length : int 
         for j in range(min_str_length,max_str_length):
             if i+j<len(contents)+1:
                 current_str = contents[i:i+j]
-                if current_str in counts:
-                    counts[current_str]=counts[current_str]+1
-                else:
-                    counts[current_str]=1
+                if not current_str[0:1] in [' ', '\t', '\r', '\n']:
+                    if current_str in counts:
+                        counts[current_str]=counts[current_str]+1
+                    else:
+                        counts[current_str]=1
             else:
                 break
 
